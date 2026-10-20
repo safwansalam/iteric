@@ -1,0 +1,22 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %}Admin Login{% endblock %}
+{% block body %}
+<div style="min-height:100vh;display:grid;place-items:center;padding:1.5rem;background:linear-gradient(135deg,#0b1a4a,#2457d6 60%,#7c3aed)">
+  <div class="cardx p-4 p-md-5" style="width:100%;max-width:420px">
+    <div class="text-center mb-4"><img src="{% static 'img/it_eric_logo.png' %}" alt="IT Eric" style="height:46px"></div>
+    <h4 class="text-center mb-1">Admin Login</h4>
+    <p class="text-center text-muted small mb-4">Sign in to view enquiries and dealer registrations.</p>
+    {% if form.errors %}<div class="alert alert-danger py-2 small">Wrong username or password, or this account has no dashboard access.</div>{% endif %}
+    <form method="post">{% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}">
+      <label class="form-label small fw-semibold">Username</label>
+      <input name="username" class="form-control mb-3" autofocus autocomplete="username" required>
+      <label class="form-label small fw-semibold">Password</label>
+      <input name="password" type="password" class="form-control mb-4" autocomplete="current-password" required>
+      <button class="btn btn-brand w-100 py-2 fw-semibold">Sign in</button>
+    </form>
+    <div class="text-center mt-3"><a href="{% url 'home' %}" class="small text-decoration-none"><i class="bi bi-arrow-left"></i> Back to website</a></div>
+  </div>
+</div>
+{% endblock %}

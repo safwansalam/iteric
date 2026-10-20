@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us | IT Eric{% endblock %}
+{% block extra_head %}
+<link href="{% static 'css/landing.css' %}" rel="stylesheet">
+<link href="{% static 'css/about.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="lp">
+
+<!-- =============== HERO =============== -->
+<section class="ab-hero">
+  <svg class="ab-sky" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="abg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6ee7ff"/><stop offset="1" stop-color="#6ee7ff" stop-opacity="0"/></linearGradient></defs><g fill="url(#abg)"><rect x="0" y="26" width="22" height="174" rx="2" opacity="0.81"/><rect x="28" y="65" width="22" height="135" rx="2" opacity="0.65"/><rect x="54" y="60" width="22" height="140" rx="2" opacity="0.78"/><rect x="80" y="92" width="22" height="108" rx="2" opacity="0.35"/><rect x="110" y="75" width="10" height="125" rx="2" opacity="0.54"/><rect x="126" y="76" width="14" height="124" rx="2" opacity="0.80"/><rect x="144" y="123" width="10" height="77" rx="2" opacity="0.83"/><rect x="162" y="72" width="10" height="128" rx="2" opacity="0.50"/><rect x="180" y="95" width="14" height="105" rx="2" opacity="0.68"/><rect x="200" y="89" width="10" height="111" rx="2" opacity="0.57"/><rect x="216" y="71" width="22" height="129" rx="2" opacity="0.90"/><rect x="242" y="119" width="18" height="81" rx="2" opacity="0.44"/><rect x="266" y="137" width="10" height="63" rx="2" opacity="0.76"/><rect x="282" y="96" width="10" height="104" rx="2" opacity="0.53"/><rect x="296" y="134" width="10" height="66" rx="2" opacity="0.86"/><rect x="310" y="127" width="22" height="73" rx="2" opacity="0.73"/><rect x="338" y="122" width="10" height="78" rx="2" opacity="0.42"/><rect x="356" y="137" width="18" height="63" rx="2" opacity="0.49"/><rect x="378" y="121" width="22" height="79" rx="2" opacity="0.37"/><rect x="404" y="158" width="10" height="42" rx="2" opacity="0.58"/><rect x="420" y="133" width="14" height="67" rx="2" opacity="0.41"/><rect x="442" y="126" width="14" height="74" rx="2" opacity="0.76"/><rect x="462" y="161" width="22" height="39" rx="2" opacity="0.55"/><rect x="488" y="159" width="10" height="41" rx="2" opacity="0.88"/><rect x="506" y="140" width="18" height="60" rx="2" opacity="0.31"/><rect x="528" y="144" width="22" height="56" rx="2" opacity="0.66"/><rect x="558" y="174" width="10" height="26" rx="2" opacity="0.39"/><rect x="574" y="177" width="18" height="23" rx="2" opacity="0.67"/><rect x="598" y="178" width="22" height="22" rx="2" opacity="0.35"/><rect x="628" y="182" width="14" height="18" rx="2" opacity="0.52"/><rect x="650" y="182" width="22" height="18" rx="2" opacity="0.65"/><rect x="680" y="175" width="14" height="25" rx="2" opacity="0.41"/><rect x="698" y="177" width="18" height="23" rx="2" opacity="0.79"/><rect x="720" y="182" width="14" height="18" rx="2" opacity="0.68"/><rect x="742" y="179" width="14" height="21" rx="2" opacity="0.53"/><rect x="762" y="180" width="10" height="20" rx="2" opacity="0.36"/><rect x="776" y="182" width="18" height="18" rx="2" opacity="0.72"/><rect x="800" y="169" width="22" height="31" rx="2" opacity="0.66"/><rect x="828" y="162" width="14" height="38" rx="2" opacity="0.89"/><rect x="846" y="169" width="14" height="31" rx="2" opacity="0.69"/><rect x="868" y="170" width="10" height="30" rx="2" opacity="0.85"/><rect x="882" y="174" width="10" height="26" rx="2" opacity="0.55"/><rect x="896" y="173" width="10" height="27" rx="2" opacity="0.47"/><rect x="914" y="169" width="14" height="31" rx="2" opacity="0.38"/><rect x="934" y="150" width="18" height="50" rx="2" opacity="0.71"/><rect x="960" y="147" width="14" height="53" rx="2" opacity="0.85"/><rect x="980" y="140" width="18" height="60" rx="2" opacity="0.88"/><rect x="1002" y="144" width="10" height="56" rx="2" opacity="0.74"/><rect x="1018" y="121" width="14" height="79" rx="2" opacity="0.35"/><rect x="1040" y="127" width="18" height="73" rx="2" opacity="0.84"/><rect x="1066" y="119" width="14" height="81" rx="2" opacity="0.85"/><rect x="1086" y="120" width="10" height="80" rx="2" opacity="0.84"/><rect x="1102" y="108" width="10" height="92" rx="2" opacity="0.64"/><rect x="1120" y="129" width="22" height="71" rx="2" opacity="0.31"/><rect x="1146" y="140" width="10" height="60" rx="2" opacity="0.37"/><rect x="1162" y="102" width="22" height="98" rx="2" opacity="0.53"/><rect x="1192" y="113" width="22" height="87" rx="2" opacity="0.80"/><rect x="1218" y="116" width="10" height="84" rx="2" opacity="0.35"/><rect x="1232" y="71" width="14" height="129" rx="2" opacity="0.37"/><rect x="1254" y="114" width="22" height="86" rx="2" opacity="0.31"/><rect x="1282" y="79" width="14" height="121" rx="2" opacity="0.42"/><rect x="1300" y="76" width="18" height="124" rx="2" opacity="0.57"/><rect x="1322" y="91" width="18" height="109" rx="2" opacity="0.45"/><rect x="1348" y="54" width="22" height="146" rx="2" opacity="0.75"/><rect x="1374" y="83" width="14" height="117" rx="2" opacity="0.65"/><rect x="1394" y="101" width="14" height="99" rx="2" opacity="0.60"/><rect x="1412" y="25" width="10" height="175" rx="2" opacity="0.47"/><rect x="1426" y="67" width="10" height="133" rx="2" opacity="0.47"/></g></svg>
+  <div class="container">
+    <span class="ab-crumb"><a href="{% url 'home' %}">Home</a> <i class="bi bi-chevron-right"></i> About Us</span>
+    <h1>About <span>IT Eric</span></h1>
+    <p>A leading IT hardware and solutions provider in Kerala.</p>
+  </div>
+</section>
+
+<!-- =============== STAT CARDS =============== -->
+<section class="ab-stats">
+  <div class="container">
+    <div class="row g-3 g-lg-4">
+      <div class="col-12 col-md-4"><div class="ab-stat"><i class="bi bi-geo-alt"></i><div class="n">6</div><p>Branches across Kerala</p></div></div>
+      <div class="col-6 col-md-4"><div class="ab-stat"><i class="bi bi-award"></i><div class="n">7</div><p>Leading technology brands</p></div></div>
+      <div class="col-6 col-md-4"><div class="ab-stat"><i class="bi bi-box-seam"></i><div class="n">19</div><p>Product categories</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== STORY =============== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="row gy-5 gx-lg-5 align-items-center">
+      <div class="col-lg-7 ab-text">
+        <span class="lp-eyebrow">Our Story</span>
+        <h2 class="ab-title">Quality products and reliable technology solutions</h2>
+        <p class="ab-lead">IT Eric is a leading IT hardware and solutions provider in Kerala, specializing in computer and laptop sales, computer components, and professional IT services. With six branches across Kerala, we serve individuals, businesses, and corporate clients with quality products and reliable technology solutions.</p>
+        <p>We offer a wide range of IT products, including desktops, laptops, processors, motherboards, storage devices, and computer accessories. Our product portfolio includes leading technology brands such as Intel, AMD, HP, Dell, Gigabyte, WD, and Seagate.</p>
+        <p>Along with IT product sales, we provide computer assembly, laptop and desktop repairs, hardware upgrades, troubleshooting, and corporate IT support, including Annual Maintenance Contracts (AMC).</p>
+        <div class="ab-quote"><i class="bi bi-quote"></i>With a focus on quality, reliability, and customer satisfaction, we aim to provide the right technology solutions for every customer.</div>
+      </div>
+      <div class="col-lg-5">
+        <div class="ab-serve">
+          <h5>Who we serve</h5>
+          <div class="row-i"><i class="bi bi-person"></i><div><strong>Individuals</strong><span>Laptops, desktops and accessories</span></div></div>
+          <div class="row-i"><i class="bi bi-shop"></i><div><strong>Businesses</strong><span>Hardware, upgrades and repairs</span></div></div>
+          <div class="row-i"><i class="bi bi-building"></i><div><strong>Corporate clients</strong><span>IT support and Annual Maintenance Contracts</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== PRODUCTS & SERVICES =============== -->
+<section class="lp-section ice">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lp-eyebrow">What we distribute</span>
+      <h2 class="lp-title">Our <span class="script">Products</span></h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><div class="ab-svc"><span class="no">01</span><div class="ic"><i class="bi bi-laptop"></i></div><h5>Desktop &amp; Laptop Sales</h5><div class="items"><span>Laptop / Desktop</span><span>Monitor</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="ab-svc"><span class="no">02</span><div class="ic"><i class="bi bi-cpu"></i></div><h5>Processors, Motherboards &amp; Computer Components</h5><div class="items"><span>Processor</span><span>Motherboard</span><span>Graphics Card</span><span>Cabinet</span><span>Memory</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="ab-svc"><span class="no">03</span><div class="ic"><i class="bi bi-device-hdd"></i></div><h5>Computer Accessories &amp; Storage Solutions</h5><div class="items"><span>Hard Disc</span><span>SSD (Ext / Int)</span><span>Pendrive</span><span>Keyboard / Mouse</span><span>Headphone</span><span>Cables</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="ab-svc"><span class="no">04</span><div class="ic"><i class="bi bi-router"></i></div><h5>Networking, CCTV &amp; Printing</h5><div class="items"><span>Networking Products</span><span>CCTV Items</span><span>Printers</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="ab-svc"><span class="no">05</span><div class="ic"><i class="bi bi-upc-scan"></i></div><h5>Scanners &amp; Security Devices</h5><div class="items"><span>Barcode Scanner</span><span>Finger Print Reader</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="ab-svc"><span class="no">06</span><div class="ic"><i class="bi bi-battery-charging"></i></div><h5>Power Backup</h5><div class="items"><span>UPS / Battery</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== BRANDS =============== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lp-eyebrow">Partners</span>
+      <h2 class="lp-title">Our <span class="script">Brands</span></h2>
+    </div>
+    <div class="lp-brands-box">
+      <div class="lp-brand-row">
+        {% for b in brands %}
+        <a href="{% url 'products' %}?brand={{ b.id }}"><img src="{{ b.logo.url }}" alt="Brand logo"></a>
+        {% empty %}
+        <strong class="text-center" style="color:var(--lp-navy)">Intel &nbsp;|&nbsp; AMD &nbsp;|&nbsp; HP &nbsp;|&nbsp; Dell &nbsp;|&nbsp; Gigabyte &nbsp;|&nbsp; WD &nbsp;|&nbsp; Seagate</strong>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== BRANCHES =============== -->
+<section class="lp-section ice">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lp-eyebrow">Our Presence</span>
+      <h2 class="lp-title">Our <span class="script">Branches</span></h2>
+      <p class="lp-sub mx-auto">We currently serve customers through six branches across Kerala.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Kochi</h5></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thiruvananthapuram</h5></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thrissur</h5></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Kozhikode (Calicut)</h5></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thodupuzha</h5></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Perinthalmanna</h5></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== MISSION & VISION =============== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="ab-mv"><div class="ic"><i class="bi bi-bullseye"></i></div><h3>Our Mission</h3><p>To provide quality IT products and dependable services that meet the technology needs of individuals and businesses.</p></div></div>
+      <div class="col-lg-6"><div class="ab-mv alt"><div class="ic"><i class="bi bi-eye"></i></div><h3>Our Vision</h3><p>To become a trusted IT solutions provider across Kerala through quality products, professional service, and lasting customer relationships.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CLOSING =============== -->
+<section class="lp-section pt-0">
+  <div class="container">
+    <div class="ab-close">
+      <h2 class="mb-4">IT Eric – <span class="script">Powering Your Technology, Supporting Your Success.</span></h2>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="{% url 'contact' %}" class="lp-btn lp-btn-light">Contact Us <i class="bi bi-arrow-right"></i></a>
+        <a href="{% url 'dealer' %}" class="lp-btn lp-btn-outline" style="border-color:#fff;color:#fff">Become a Dealer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+{% endblock %}

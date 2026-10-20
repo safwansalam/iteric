@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Overview{% endblock %}
+{% block body %}
+<h3 class="mb-1">Welcome back</h3>
+<p class="text-muted mb-4">Everything customers and dealers have sent through the website.</p>
+<div class="row g-3 mb-4">
+  {% for c in cards %}
+  <div class="col-md-4">
+    <a class="cardx stat" href="{% url 'dashboard_list' c.key %}">
+      <div class="d-flex align-items-center gap-3 mb-3"><div class="ic"><i class="bi {{ c.icon }}"></i></div><strong>{{ c.title }}</strong></div>
+      <div class="d-flex align-items-end gap-4">
+        <div><div class="num">{{ c.new }}</div><small class="text-muted">new</small></div>
+        <div><div class="num" style="font-size:1.4rem;color:#64748b">{{ c.total }}</div><small class="text-muted">total</small></div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+<div class="row g-3">
+  {% for c in cards %}
+  <div class="col-lg-4">
+    <div class="cardx p-3 h-100">
+      <h6 class="mb-3">Latest {{ c.title|lower }}</h6>
+      {% for o in c.recent %}
+        <div class="d-flex justify-content-between align-items-start py-2 border-bottom">
+          <div><strong class="small">{% if o.company %}{{ o.company }}{% else %}{{ o.name }}{% endif %}</strong>
+            <div class="text-muted small">{{ o.created|date:"d M, h:i A" }}</div></div>
+          <span class="pill {{ o.status }}">{{ o.get_status_display }}</span>
+        </div>
+      {% empty %}<p class="text-muted small mb-0">Nothing yet.</p>{% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

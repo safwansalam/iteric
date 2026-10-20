@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}IT Eric | Innovation. Technology. Excellence.{% endblock %}
+{% block extra_head %}<link href="{% static 'css/landing.css' %}" rel="stylesheet">{% endblock %}
+
+{% block content %}
+<div class="lp">
+
+<!-- =============== HERO =============== -->
+<section class="lp-hero">
+  <span class="confetti k1"></span><span class="confetti k2"></span><span class="confetti k3"></span><span class="confetti k4"></span><span class="confetti k5"></span>
+  <svg class="lp-skyline" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="skg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f6bff"/><stop offset=".6" stop-color="#6a8dff" stop-opacity=".55"/><stop offset="1" stop-color="#22c7f0" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="stk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22c7f0"/><stop offset=".5" stop-color="#8a3ffc"/><stop offset="1" stop-color="#e6007e"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <g fill="url(#skg)"><rect x="0" y="21" width="18" height="279" rx="2" opacity="0.59"/><rect x="22" y="49" width="10" height="251" rx="2" opacity="0.41"/><rect x="40" y="44" width="10" height="256" rx="2" opacity="0.48"/><rect x="54" y="114" width="22" height="186" rx="2" opacity="0.49"/><rect x="84" y="169" width="22" height="131" rx="2" opacity="0.69"/><rect x="110" y="113" width="10" height="187" rx="2" opacity="0.59"/><rect x="124" y="120" width="10" height="180" rx="2" opacity="0.43"/><rect x="140" y="127" width="14" height="173" rx="2" opacity="0.69"/><rect x="162" y="182" width="14" height="118" rx="2" opacity="0.69"/><rect x="180" y="186" width="18" height="114" rx="2" opacity="0.78"/><rect x="206" y="141" width="10" height="159" rx="2" opacity="0.65"/><rect x="224" y="132" width="22" height="168" rx="2" opacity="0.63"/><rect x="252" y="185" width="18" height="115" rx="2" opacity="0.83"/><rect x="278" y="210" width="14" height="90" rx="2" opacity="0.53"/><rect x="298" y="162" width="18" height="138" rx="2" opacity="0.52"/><rect x="320" y="186" width="10" height="114" rx="2" opacity="0.45"/><rect x="336" y="160" width="14" height="140" rx="2" opacity="0.60"/><rect x="358" y="180" width="10" height="120" rx="2" opacity="0.69"/><rect x="374" y="189" width="18" height="111" rx="2" opacity="0.71"/><rect x="400" y="235" width="22" height="65" rx="2" opacity="0.41"/><rect x="428" y="206" width="22" height="94" rx="2" opacity="0.39"/><rect x="458" y="217" width="18" height="83" rx="2" opacity="0.95"/><rect x="482" y="220" width="18" height="80" rx="2" opacity="0.88"/><rect x="506" y="217" width="10" height="83" rx="2" opacity="0.56"/><rect x="524" y="241" width="10" height="59" rx="2" opacity="0.48"/><rect x="540" y="235" width="14" height="65" rx="2" opacity="0.59"/><rect x="560" y="260" width="10" height="40" rx="2" opacity="0.59"/><rect x="576" y="242" width="14" height="58" rx="2" opacity="0.87"/><rect x="596" y="242" width="22" height="58" rx="2" opacity="0.76"/><rect x="624" y="270" width="14" height="30" rx="2" opacity="0.46"/><rect x="642" y="276" width="14" height="24" rx="2" opacity="0.85"/><rect x="660" y="272" width="18" height="28" rx="2" opacity="0.44"/><rect x="686" y="270" width="18" height="30" rx="2" opacity="0.54"/><rect x="708" y="275" width="10" height="25" rx="2" opacity="0.87"/><rect x="726" y="276" width="22" height="24" rx="2" opacity="0.59"/><rect x="754" y="276" width="22" height="24" rx="2" opacity="0.39"/><rect x="780" y="275" width="22" height="25" rx="2" opacity="0.55"/><rect x="806" y="276" width="10" height="24" rx="2" opacity="0.44"/><rect x="820" y="258" width="18" height="42" rx="2" opacity="0.39"/><rect x="842" y="267" width="22" height="33" rx="2" opacity="0.50"/><rect x="870" y="251" width="18" height="49" rx="2" opacity="0.42"/><rect x="894" y="246" width="22" height="54" rx="2" opacity="0.54"/><rect x="920" y="229" width="10" height="71" rx="2" opacity="0.79"/><rect x="936" y="235" width="14" height="65" rx="2" opacity="0.47"/><rect x="958" y="247" width="18" height="53" rx="2" opacity="0.68"/><rect x="980" y="201" width="18" height="99" rx="2" opacity="0.87"/><rect x="1006" y="217" width="18" height="83" rx="2" opacity="0.89"/><rect x="1030" y="210" width="14" height="90" rx="2" opacity="0.82"/><rect x="1050" y="199" width="14" height="101" rx="2" opacity="0.82"/><rect x="1068" y="181" width="14" height="119" rx="2" opacity="0.79"/><rect x="1086" y="195" width="14" height="105" rx="2" opacity="0.56"/><rect x="1104" y="170" width="10" height="130" rx="2" opacity="0.63"/><rect x="1118" y="191" width="18" height="109" rx="2" opacity="0.91"/><rect x="1142" y="214" width="18" height="86" rx="2" opacity="0.41"/><rect x="1166" y="187" width="14" height="113" rx="2" opacity="0.64"/><rect x="1188" y="169" width="10" height="131" rx="2" opacity="0.74"/><rect x="1206" y="130" width="10" height="170" rx="2" opacity="0.42"/><rect x="1222" y="159" width="14" height="141" rx="2" opacity="0.46"/><rect x="1244" y="191" width="18" height="109" rx="2" opacity="0.92"/><rect x="1270" y="145" width="22" height="155" rx="2" opacity="0.80"/><rect x="1296" y="170" width="14" height="130" rx="2" opacity="0.43"/><rect x="1314" y="92" width="22" height="208" rx="2" opacity="0.44"/><rect x="1344" y="99" width="22" height="201" rx="2" opacity="0.56"/><rect x="1374" y="169" width="14" height="131" rx="2" opacity="0.83"/><rect x="1396" y="97" width="10" height="203" rx="2" opacity="0.91"/><rect x="1412" y="50" width="14" height="250" rx="2" opacity="0.48"/><rect x="1432" y="117" width="14" height="183" rx="2" opacity="0.49"/></g>
+  <g fill="none" stroke="url(#stk)" stroke-linecap="round">
+    <path d="M0 282 C 360 240, 1080 240, 1440 282" stroke-width="3" opacity=".9"/>
+    <path d="M0 270 C 380 215, 1060 215, 1440 270" stroke-width="2" opacity=".6"/>
+    <path d="M0 292 C 420 260, 1020 260, 1440 292" stroke-width="6" opacity=".35" filter="url(#glow)"/>
+  </g>
+</svg>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h1>Innovation.<br>Technology.<br><span class="grad-text">Excellence.</span></h1>
+        <p class="lead">Kerala's trusted IT products distributor. Desktops, laptops, monitors, processors, motherboards and storage from Intel, AMD, HP, Dell, Gigabyte, WD and Seagate, delivered through 6 branches across the state.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="{% url 'products' %}" class="lp-btn lp-btn-pink">Browse Products <i class="bi bi-arrow-right"></i></a>
+          <a href="{% url 'dealer' %}" class="lp-btn lp-btn-outline">Become a Dealer</a>
+        </div>
+        <div class="lp-checks">
+          <span><i class="bi bi-patch-check-fill"></i>100% Genuine</span>
+          <span><i class="bi bi-tag-fill"></i>Dealer Pricing</span>
+          <span><i class="bi bi-shield-check"></i>Warranty Support</span>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="lp-hero-art">
+          <div class="lp-chip c1"><i class="bi bi-geo-alt-fill"></i><div>6 Branches<small>Across Kerala</small></div></div>
+          <div class="lp-chip c2"><i class="bi bi-truck"></i><div>Fast Delivery<small>Kerala-wide</small></div></div>
+          <svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IT Eric website on a monitor">
+            <defs>
+              <linearGradient id="lpscr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b3a9e"/><stop offset=".5" stop-color="#6a3df0"/><stop offset="1" stop-color="#e6007e"/></linearGradient>
+              <linearGradient id="lpbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26324f"/><stop offset="1" stop-color="#101830"/></linearGradient>
+              <linearGradient id="lpgold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a8741a"/><stop offset=".5" stop-color="#f6d98a"/><stop offset="1" stop-color="#a8741a"/></linearGradient>
+              <linearGradient id="lppink" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e6007e"/><stop offset="1" stop-color="#b5179e"/></linearGradient>
+            </defs>
+            <!-- stand + body + screen -->
+            <path d="M225 322 h70 l14 44 h-98 z" fill="#18213a"/>
+            <rect x="170" y="362" width="180" height="12" rx="6" fill="url(#lpgold)"/>
+            <rect x="30" y="30" width="460" height="296" rx="18" fill="url(#lpbody)"/>
+            <rect x="44" y="44" width="432" height="262" rx="8" fill="url(#lpscr)"/>
+
+            <!-- website window -->
+            <rect x="56" y="56" width="408" height="238" rx="10" fill="#fff"/>
+            <path d="M56 80 V66 a10 10 0 0 1 10 -10 H454 a10 10 0 0 1 10 10 V80 Z" fill="#eef2fb"/>
+            <circle cx="70" cy="68" r="3.5" fill="#ff6b6b"/><circle cx="82" cy="68" r="3.5" fill="#ffd166"/><circle cx="94" cy="68" r="3.5" fill="#4cd964"/>
+            <rect x="150" y="61" width="170" height="14" rx="7" fill="#fff"/>
+            <text x="235" y="71.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="8.5" fill="#5d6b8c">www.iteric.in</text>
+
+            <!-- left: logo + message -->
+            <image href="{% static 'img/it_eric_logo.png' %}" x="74" y="92" width="120" height="39"/>
+            <text x="74" y="150" font-family="Poppins,Inter,Arial,sans-serif" font-size="8" font-weight="700" fill="#e6007e" letter-spacing=".4">Innovation. Technology. Excellence.</text>
+            <text x="74" y="178" font-family="Poppins,Inter,Arial,sans-serif" font-size="15.5" font-weight="800" fill="#10296b">Kerala's trusted</text>
+            <text x="74" y="197" font-family="Poppins,Inter,Arial,sans-serif" font-size="15.5" font-weight="800" fill="#10296b">IT distributor</text>
+            <text x="74" y="215" font-family="Inter,Arial,sans-serif" font-size="8.5" fill="#5d6b8c">Monitors, laptops, networking &amp; storage</text>
+            <text x="74" y="227" font-family="Inter,Arial,sans-serif" font-size="8.5" fill="#5d6b8c">from leading global brands.</text>
+            <rect x="74" y="244" width="90" height="24" rx="12" fill="url(#lppink)"/>
+            <text x="119" y="259.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="8.5" font-weight="700" fill="#fff">Browse Products</text>
+            <rect x="172" y="244" width="88" height="24" rx="12" fill="none" stroke="#10296b" stroke-width="1.4"/>
+            <text x="216" y="259.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="8.5" font-weight="700" fill="#10296b">Become a Dealer</text>
+
+            <!-- right: branches + contact -->
+            <rect x="276" y="92" width="172" height="192" rx="12" fill="#f1f5ff"/>
+            <text x="290" y="111" font-family="Inter,Arial,sans-serif" font-size="8.5" font-weight="700" fill="#e6007e" letter-spacing="1.2">OUR 6 BRANCHES</text>
+            <g font-family="Poppins,Inter,Arial,sans-serif" font-size="10" font-weight="600" fill="#10296b">
+              <circle cx="294" cy="127" r="3.6" fill="#e6007e"/><text x="304" y="130.5">Kochi</text>
+              <circle cx="294" cy="145" r="3.6" fill="#e6007e"/><text x="304" y="148.5">Trivandrum</text>
+              <circle cx="294" cy="163" r="3.6" fill="#e6007e"/><text x="304" y="166.5">Thrissur</text>
+              <circle cx="294" cy="181" r="3.6" fill="#e6007e"/><text x="304" y="184.5">Calicut</text>
+              <circle cx="294" cy="199" r="3.6" fill="#e6007e"/><text x="304" y="202.5">Thodupuzha</text>
+              <circle cx="294" cy="217" r="3.6" fill="#e6007e"/><text x="304" y="220.5">Perinthalmanna</text>
+            </g>
+            <line x1="290" y1="232" x2="434" y2="232" stroke="#dbe5fb"/>
+            <g font-family="Inter,Arial,sans-serif" font-size="9" font-weight="600" fill="#10296b">
+              <text x="290" y="250">&#9742; 81119 90966</text>
+              <text x="290" y="268">&#9993; mail@iteric.in</text>
+            </g>
+
+            <path d="M44 44 h250 l-120 262 h-130 z" fill="#fff" opacity=".05"/>
+            <circle cx="260" cy="318" r="2.5" fill="#f6d98a"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== BRAND STRIP =============== -->
+<section class="lp-brands">
+  <div class="container">
+    <div class="lp-brands-box">
+      <div class="lp-brands-label">Authorised brand partners</div>
+      <div class="lp-brand-row">
+        {% for b in brands %}
+        <a href="{% url 'products' %}?brand={{ b.id }}"><img src="{{ b.logo.url }}" alt="Brand logo"></a>
+        {% empty %}
+        <span class="text-muted">Add brand logos in the admin panel.</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== STATS =============== -->
+<section class="lp-stats">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 lp-stat"><div class="num">6</div><p>Branches across Kerala</p></div>
+      <div class="col-md-4 lp-stat"><div class="num">{{ brands|length }}</div><p>Global brands</p></div>
+      <div class="col-md-4 lp-stat"><div class="num">100%</div><p>Genuine products</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CATEGORIES =============== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lp-eyebrow">Product Range</span>
+      <h2 class="lp-title">Shop by <span class="script">Category</span></h2>
+      <p class="lp-sub mx-auto">Everything a retailer, office or system integrator needs, from one trusted distributor.</p>
+    </div>
+    <div class="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+      <!-- the slug after ?category= must match the slug in Admin → Categories (run: python manage.py seed_categories) -->
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=barcode-scanner"><i class="bi bi-upc-scan"></i><h6>Barcode Scanner</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=cabinet"><i class="bi bi-pc"></i><h6>Cabinet</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=cables"><i class="bi bi-usb-plug"></i><h6>Cables</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=cctv-items"><i class="bi bi-camera-video"></i><h6>CCTV Items</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=finger-print-reader"><i class="bi bi-fingerprint"></i><h6>Finger Print Reader</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=graphics-card"><i class="bi bi-gpu-card"></i><h6>Graphics Card</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=harddisc"><i class="bi bi-device-hdd"></i><h6>Hard Disc</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=headphone"><i class="bi bi-headphones"></i><h6>Headphone</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=keyboard-mouse"><i class="bi bi-keyboard"></i><h6>Keyboard / Mouse</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=laptop-desktop"><i class="bi bi-laptop"></i><h6>Laptop / Desktop</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=memory"><i class="bi bi-memory"></i><h6>Memory</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=monitor"><i class="bi bi-display"></i><h6>Monitor</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=motherboard"><i class="bi bi-motherboard"></i><h6>Motherboard</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=networking-products"><i class="bi bi-router"></i><h6>Networking Products</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=pendrive"><i class="bi bi-usb-drive"></i><h6>Pendrive</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=printers"><i class="bi bi-printer"></i><h6>Printers</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=processor"><i class="bi bi-cpu"></i><h6>Processor</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=ssd"><i class="bi bi-device-ssd"></i><h6>SSD (Ext / Int)</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}?category=ups-battery"><i class="bi bi-battery-charging"></i><h6>UPS / Battery</h6></a></div>
+      <div class="col"><a class="lp-cat" href="{% url 'products' %}"><i class="bi bi-grid"></i><h6>View All Products</h6></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== FEATURED PRODUCTS =============== -->
+<section class="lp-section ice">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+      <div>
+        <span class="lp-eyebrow">Featured</span>
+        <h2 class="lp-title mb-0">Popular <span class="script">Products</span></h2>
+      </div>
+      <a href="{% url 'products' %}" class="lp-btn lp-btn-outline">View all products <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="row g-4">
+      {% for p in featured %}
+      <div class="col-6 col-lg-3">
+        <div class="lp-product">
+          <div class="img"><img src="{{ p.image.url }}" alt="{{ p.name }}"></div>
+          <div class="body">
+            <img src="{{ p.brand.logo.url }}" alt="Brand logo">
+            <h6>{{ p.name }}</h6>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-muted">Add products in the admin panel and tick <strong>Featured</strong> to show them here.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- =============== BRANCHES =============== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lp-eyebrow">Our Presence</span>
+      <h2 class="lp-title">Branches across <span class="script">Kerala</span></h2>
+      <p class="lp-sub mx-auto">Six branches, so stock and support are always close to you.</p>
+    </div>
+    <!-- Add each branch's address / phone here when available -->
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Kochi</h5><span>IT Eric branch</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Trivandrum</h5><span>IT Eric branch</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thrissur</h5><span>IT Eric branch</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Calicut</h5><span>IT Eric branch</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thodupuzha</h5><span>IT Eric branch</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Perinthalmanna</h5><span>IT Eric branch</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== WHY IT ERIC =============== -->
+<section class="lp-section ice">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lp-eyebrow">Why IT Eric</span>
+      <h2 class="lp-title">A distributor you can <span class="script">rely on</span></h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3"><div class="lp-why"><i class="bi bi-box-seam"></i><h5>Ready Stock</h5><p>Wide inventory across our branches so orders ship without long waits.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="lp-why"><i class="bi bi-percent"></i><h5>Competitive Margins</h5><p>Dealer-level pricing that keeps your retail margins healthy.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="lp-why"><i class="bi bi-shield-check"></i><h5>Warranty Support</h5><p>Help with brand warranty claims and replacements.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="lp-why"><i class="bi bi-people"></i><h5>Dedicated Team</h5><p>Quick quotes and product advice from people who know IT.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== DEALER CTA =============== -->
+<section class="lp-section pb-0">
+  <div class="container">
+    <div class="lp-cta">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-8">
+          <h2 class="mb-2">Own an IT shop? Become an IT Eric dealer.</h2>
+          <p class="mb-0">Register once and get dealer pricing, priority stock and direct support.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end"><a href="{% url 'dealer' %}" class="lp-btn lp-btn-light">Register Now <i class="bi bi-arrow-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CONTACT STRIP =============== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-md-4"><a class="lp-contact" href="https://www.iteric.in" target="_blank"><i class="bi bi-globe2"></i><div><small>Website</small><strong>www.iteric.in</strong></div></a></div>
+      <div class="col-md-4"><a class="lp-contact" href="tel:+918111990966"><i class="bi bi-telephone-fill"></i><div><small>Call us</small><strong>81119 90966</strong></div></a></div>
+      <div class="col-md-4"><a class="lp-contact" href="mailto:mail@iteric.in"><i class="bi bi-envelope-fill"></i><div><small>Email</small><strong>mail@iteric.in</strong></div></a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+{% endblock %}

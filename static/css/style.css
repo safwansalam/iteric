@@ -1,0 +1,309 @@
+/* ===== IT Eric – theme ===== */
+:root {
+  --ink: #0b1220;
+  --navy: #0f1b33;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --cyan: #22d3ee;
+  --bg: #f4f7fb;
+  --line: #e3e9f2;
+  --muted: #64748b;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+h1, h2, h3, h4, h5, .navbar-brand { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -.02em; }
+
+/* ---------- Top bar + Navbar ---------- */
+.topbar { background: var(--ink); color: #aab6cc; font-size: .82rem; padding: .5rem 0; }
+.topbar a { color: #aab6cc; text-decoration: none; }
+.topbar a:hover { color: var(--cyan); }
+.topbar i { color: var(--cyan); margin-right: .35rem; }
+
+.site-nav {
+  background: #fff; padding: 0;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 4px 18px rgba(15, 27, 51, .06);
+}
+.site-nav .navbar-brand { font-size: 1.7rem; font-weight: 700; color: var(--ink); padding: .9rem 0; }
+.site-nav .navbar-brand span { color: var(--blue); margin-left: 2px; }
+.site-nav .nav-link {
+  color: #334155; font-weight: 600; font-size: .95rem;
+  padding: 1.55rem 1.15rem; position: relative; transition: color .2s;
+}
+.site-nav .nav-link::after {
+  content: ''; position: absolute; left: 1.15rem; right: 1.15rem; bottom: 0; height: 3px;
+  background: var(--blue); border-radius: 3px 3px 0 0; transform: scaleX(0); transition: transform .25s;
+}
+.site-nav .nav-link:hover, .site-nav .nav-link.active { color: var(--blue); }
+.site-nav .nav-link:hover::after, .site-nav .nav-link.active::after { transform: scaleX(1); }
+@media (max-width: 991px) {
+  .site-nav .nav-link { padding: .8rem 0; }
+  .site-nav .nav-link::after { display: none; }
+  .site-nav .navbar-collapse { padding-bottom: 1rem; }
+}
+.btn-brand {
+  background: linear-gradient(135deg, var(--blue), #4f8cff);
+  border: 0; color: #fff; font-weight: 600; border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, .3);
+}
+.btn-brand:hover { color: #fff; transform: translateY(-1px); background: linear-gradient(135deg, var(--blue-dark), var(--blue)); }
+.btn-ghost { border: 1px solid rgba(255,255,255,.35); color: #fff; border-radius: 10px; font-weight: 600; }
+.btn-ghost:hover { background: rgba(255,255,255,.1); color: #fff; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; overflow: hidden; color: #fff;
+  padding: 90px 0 110px;
+  background:
+    radial-gradient(900px 400px at 85% 20%, rgba(34, 211, 238, .22), transparent 60%),
+    radial-gradient(700px 400px at 10% 90%, rgba(37, 99, 235, .35), transparent 60%),
+    linear-gradient(160deg, #0b1220 0%, #0f1b33 60%, #12275a 100%);
+}
+.hero::before {            /* subtle tech grid */
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+.hero .container { position: relative; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(34, 211, 238, .12); color: var(--cyan);
+  border: 1px solid rgba(34, 211, 238, .3);
+  padding: .35rem .85rem; border-radius: 999px; font-size: .85rem; font-weight: 600;
+}
+.hero h1 { font-size: clamp(2.3rem, 5vw, 3.8rem); font-weight: 700; line-height: 1.08; margin: 1.1rem 0; }
+.hero h1 em { font-style: normal; background: linear-gradient(90deg, #60a5fa, var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lead { color: #b6c2d9; max-width: 520px; }
+.hero-art { position: relative; }
+.hero-art svg { width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,.5)); }
+.float-chip {
+  position: absolute; background: rgba(255,255,255,.1); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.2); color: #fff;
+  padding: .5rem .9rem; border-radius: 12px; font-size: .85rem; font-weight: 600;
+  animation: bob 5s ease-in-out infinite;
+}
+.float-chip i { color: var(--cyan); margin-right: .35rem; }
+.chip-1 { top: 6%; left: -2%; }
+.chip-2 { bottom: 14%; right: -2%; animation-delay: 1.5s; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ---------- Trust strip ---------- */
+.trust { margin-top: -50px; position: relative; z-index: 2; }
+.trust-box {
+  background: #fff; border-radius: 18px; border: 1px solid var(--line);
+  box-shadow: 0 20px 50px rgba(15, 27, 51, .12); padding: 1.4rem 1rem;
+}
+.trust-item { display: flex; align-items: center; gap: .8rem; padding: .4rem 1rem; }
+.trust-item i { font-size: 1.7rem; color: var(--blue); }
+.trust-item strong { display: block; font-size: .95rem; }
+.trust-item span { font-size: .8rem; color: var(--muted); }
+
+/* ---------- Sections ---------- */
+.section { padding: 80px 0; }
+.section-alt { background: var(--bg); }
+.eyebrow { color: var(--blue); font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
+.section-title { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; margin: .4rem 0 .5rem; }
+.section-sub { color: var(--muted); max-width: 560px; }
+
+/* ---------- Category tiles ---------- */
+.cat-tile {
+  display: block; text-decoration: none; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  padding: 1.6rem 1rem; text-align: center; height: 100%;
+  transition: all .25s;
+}
+.cat-tile i {
+  display: inline-grid; place-items: center; width: 62px; height: 62px;
+  font-size: 1.8rem; color: var(--blue); background: #eaf1ff; border-radius: 16px;
+  transition: all .25s;
+}
+.cat-tile h6 { margin: .9rem 0 0; font-weight: 600; }
+.cat-tile:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 16px 34px rgba(37, 99, 235, .15); }
+.cat-tile:hover i { background: var(--blue); color: #fff; }
+
+/* ---------- Product cards ---------- */
+.product-card {
+  background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  height: 100%; transition: all .25s; display: flex; flex-direction: column;
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(15, 27, 51, .14); }
+.product-img { background: var(--bg); padding: 1.2rem; height: 210px; display: grid; place-items: center; }
+.product-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.product-body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.product-brand { font-size: .75rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; }
+.product-body h6 { font-weight: 600; margin: .3rem 0 1rem; flex: 1; }
+
+/* ---------- Brands ---------- */
+.brand-logo {
+  background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  height: 90px; display: grid; place-items: center; padding: 1rem; transition: all .25s;
+}
+.brand-logo img { max-height: 100%; max-width: 100%; filter: grayscale(1); opacity: .7; transition: all .25s; }
+.brand-logo:hover { box-shadow: 0 10px 26px rgba(15, 27, 51, .1); }
+.brand-logo:hover img { filter: none; opacity: 1; }
+
+/* ---------- Why us ---------- */
+.why-card { padding: 1.8rem; border-radius: 18px; background: #fff; border: 1px solid var(--line); height: 100%; }
+.why-card i { font-size: 1.9rem; color: var(--blue); }
+.why-card h5 { margin: 1rem 0 .4rem; font-weight: 600; }
+.why-card p { color: var(--muted); margin: 0; font-size: .95rem; }
+
+/* ---------- Dealer CTA ---------- */
+.cta {
+  border-radius: 24px; color: #fff; padding: 3.2rem 2.5rem;
+  background:
+    radial-gradient(500px 250px at 90% 0%, rgba(34, 211, 238, .3), transparent 60%),
+    linear-gradient(135deg, #1d4ed8, #0f1b33);
+}
+
+/* ---------- Forms & misc ---------- */
+.page-head { background: linear-gradient(160deg, #0b1220, #12275a); color: #fff; padding: 60px 0; }
+.form-card { border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 14px 40px rgba(15, 27, 51, .08); }
+.form-control { border-radius: 10px; padding: .65rem .9rem; border-color: var(--line); }
+.form-control:focus { border-color: var(--blue); box-shadow: 0 0 0 .2rem rgba(37, 99, 235, .15); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--ink); color: #94a3b8; padding: 70px 0 24px; }
+.site-footer h5 { color: #fff; font-size: 1.05rem; margin-bottom: 1rem; }
+.site-footer a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: .5rem; }
+.site-footer a:hover { color: var(--cyan); }
+.site-footer .brand { font-size: 1.6rem; font-weight: 700; color: #fff; font-family: 'Space Grotesk', sans-serif; }
+.site-footer .brand span { color: var(--cyan); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.08); margin-top: 2.5rem; padding-top: 1.2rem; font-size: .85rem; }
+
+/* WhatsApp floating button */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 99; width: 56px; height: 56px;
+  border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center;
+  font-size: 1.8rem; box-shadow: 0 8px 22px rgba(0,0,0,.3);
+}
+.wa-float:hover { color: #fff; transform: scale(1.08); }
+
+@media (max-width: 991px) { .hero { padding: 60px 0 90px; } .trust-item { padding: .6rem; } }
+
+
+/* ---------- Clickable product cards (whole card is a link) ---------- */
+a.product-card { text-decoration: none; color: inherit; cursor: pointer; }
+.product-brand-logo { height: 26px; max-width: 100px; object-fit: contain; object-position: left; display: block; }
+.product-more { color: var(--blue); font-weight: 600; font-size: .9rem; }
+a.product-card:hover .product-more { text-decoration: underline; }
+
+/* ---------- Filters on Products page ---------- */
+.filter-label { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .7rem; }
+.brand-strip { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: 1.6rem; }
+.brand-chip {
+  display: grid; place-items: center; height: 64px; min-width: 120px; padding: .6rem 1.1rem;
+  background: #fff; border: 1.5px solid var(--line); border-radius: 12px;
+  text-decoration: none; color: var(--ink); font-weight: 600; cursor: pointer; transition: all .2s;
+}
+.brand-chip img { max-height: 100%; max-width: 100px; object-fit: contain; }
+.brand-chip:hover { border-color: var(--blue); box-shadow: 0 8px 20px rgba(37, 99, 235, .15); transform: translateY(-2px); color: var(--blue); }
+.brand-chip.active { border-color: var(--blue); background: #eaf1ff; box-shadow: 0 0 0 3px rgba(37, 99, 235, .15); }
+.cat-pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
+.cat-pill {
+  padding: .5rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--line); background: #fff;
+  text-decoration: none; color: #334155; font-weight: 600; font-size: .9rem; cursor: pointer; transition: all .2s;
+}
+.cat-pill:hover { border-color: var(--blue); color: var(--blue); }
+.cat-pill.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* ---------- Brands page ---------- */
+.brand-tile {
+  display: grid; place-items: center; height: 150px; padding: 1.6rem;
+  background: #fff; border: 1px solid var(--line); border-radius: 18px;
+  text-decoration: none; cursor: pointer; transition: all .25s;
+}
+.brand-tile img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.brand-tile:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 18px 40px rgba(37, 99, 235, .16); }
+a.brand-logo { cursor: pointer; text-decoration: none; }
+
+/* ---------- Product detail ---------- */
+.detail-img { background: var(--bg); border-radius: 20px; padding: 2rem; display: grid; place-items: center; min-height: 380px; }
+.detail-img img { max-width: 100%; max-height: 340px; object-fit: contain; }
+
+
+/* ---------- Logo ---------- */
+.site-nav .navbar-brand { padding: .55rem 0; }
+.site-logo { height: 52px; width: auto; display: block; }
+.site-footer a.footer-logo { display: inline-flex !important; width: fit-content; }
+.footer-logo { display: inline-flex; align-items: center; background: #fff; padding: .7rem 1.1rem; border-radius: 14px; margin-bottom: .4rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.08); transition: transform .2s ease; }
+.footer-logo:hover { transform: translateY(-2px); }
+.footer-logo img { height: 46px; width: auto; max-width: 100%; display: block; }
+@media (max-width: 575px) { .site-logo { height: 44px; } }
+
+/* ---------- Brand logos: small, even, professional ---------- */
+.brand-tile {
+  height: 120px; padding: 1rem 1.4rem; border-radius: 14px; overflow: hidden;
+}
+.brand-tile img {
+  width: auto; height: auto; max-width: 130px; max-height: 52px; object-fit: contain;
+  mix-blend-mode: multiply;            /* hides white/grey boxes around logos */
+  filter: grayscale(1); opacity: .7; transition: all .25s;
+}
+.brand-tile:hover img { filter: none; opacity: 1; }
+
+.brand-logo { height: 84px; padding: .8rem 1.2rem; overflow: hidden; }
+.brand-logo img {
+  width: auto; height: auto; max-width: 110px; max-height: 42px; object-fit: contain;
+  mix-blend-mode: multiply; filter: grayscale(1); opacity: .7;
+}
+.brand-logo:hover img { filter: none; opacity: 1; }
+
+.brand-chip { height: 56px; min-width: 100px; padding: .5rem 1rem; overflow: hidden; }
+.brand-chip img { width: auto; height: auto; max-width: 84px; max-height: 32px; object-fit: contain; mix-blend-mode: multiply; }
+
+.product-brand-logo { height: auto; max-height: 22px; max-width: 80px; width: auto; mix-blend-mode: multiply; }
+
+/* ---------- Products page brand filter: every logo the SAME height (final override) ---------- */
+.brand-strip { display: flex; flex-wrap: wrap; gap: .7rem; align-items: stretch; }
+.brand-strip .brand-chip {
+  display: flex !important; align-items: center; justify-content: center;
+  width: 120px; height: 56px !important; min-width: 0 !important; padding: 0 .8rem !important;
+  overflow: hidden; box-sizing: border-box;
+}
+.brand-strip .brand-chip img {
+  display: block; height: 26px !important; width: auto !important;
+  max-width: 84px !important; max-height: 26px !important; object-fit: contain;
+  mix-blend-mode: multiply;
+}
+/* brand logo on product cards: same height for all */
+.product-card .product-brand-logo {
+  display: block; height: 22px !important; width: auto !important;
+  max-width: 80px !important; max-height: 22px !important; object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Final tweaks ---------- */
+/* Brand logos always in full colour (home + Brands page) */
+.brand-tile img, .brand-logo img { filter: none !important; opacity: 1 !important; }
+
+/* Products page brand filter: medium size */
+.brand-strip .brand-chip { width: 140px; height: 64px !important; }
+.brand-strip .brand-chip img { height: 36px !important; max-height: 36px !important; max-width: 104px !important; }
+
+/* Products page brand filter: larger so wide logos (Gigabyte, Seagate) are readable */
+.brand-strip .brand-chip { width: 170px; height: 72px !important; }
+.brand-strip .brand-chip img { height: 44px !important; max-height: 44px !important; max-width: 146px !important; }
+
+/* ---------- Staff login button (navbar) ---------- */
+.btn-login { border: 1.5px solid #cfdcf7; color: #10296b; background: #fff; font-weight: 600; border-radius: 10px; }
+.btn-login:hover { border-color: #2563eb; color: #2563eb; background: #f3f7ff; }
+@media (max-width: 991px) { .nav-actions { padding: .8rem 0 1rem; } }
+
+/* ---------- Product images: never bigger than the grey box ---------- */
+.product-img { overflow: hidden; }
+.product-img img { max-height: 180px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+
+/* ---------- Mobile: brand filter chips two per row ---------- */
+@media (max-width: 575px) {
+  .brand-strip .brand-chip { width: calc(50% - .35rem); }
+  .brand-strip .brand-chip img { max-width: 100% !important; }
+}

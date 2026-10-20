@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Brands | IT Eric{% endblock %}
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <h1 class="fw-bold mb-1">Our Brands</h1>
+    <p class="mb-0 opacity-75">Click a brand to view its products.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for b in brands %}
+      <div class="col-6 col-md-4 col-lg-2">
+        <a class="brand-tile" href="{% url 'products' %}?brand={{ b.id }}">
+          <img src="{{ b.logo.url }}" alt="Brand logo">
+        </a>
+      </div>
+      {% empty %}
+      <p class="text-center text-muted">No brands added yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

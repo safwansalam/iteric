@@ -1,0 +1,116 @@
+/* =========================================================
+   IT Eric – About page (self-contained styles)
+   ========================================================= */
+:root {
+  --lp-navy: #10296b; --lp-blue: #2457d6; --lp-cyan: #22c7f0; --lp-purple: #8a3ffc;
+  --lp-pink: #e6007e; --lp-gold: #d8a531; --lp-gold-2: #f6d98a; --lp-ice: #eef4ff;
+  --lp-text: #1d2a4d; --lp-muted: #5d6b8c;
+}
+
+/* ---------- Hero ---------- */
+.ab-hero {
+  position: relative; overflow: hidden; color: #fff; text-align: center; padding: 84px 0 150px;
+  background:
+    radial-gradient(600px 320px at 85% 0%, rgba(230, 0, 126, .35), transparent 60%),
+    radial-gradient(640px 360px at 8% 100%, rgba(34, 199, 240, .30), transparent 60%),
+    linear-gradient(160deg, #0a1a4a 0%, #10296b 55%, #1b3fa8 100%);
+}
+.ab-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 46px 46px; mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+}
+.ab-hero .container { position: relative; z-index: 2; }
+.ab-sky { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 190px; z-index: 1; opacity: .55; pointer-events: none; }
+.ab-crumb {
+  display: inline-flex; gap: .5rem; align-items: center; font-size: .82rem; color: #c9d6f7;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); padding: .35rem 1rem; border-radius: 999px;
+}
+.ab-crumb a { color: #fff; text-decoration: none; font-weight: 600; }
+.ab-hero h1 { font-family: 'Poppins', sans-serif; font-weight: 800; color: #fff; font-size: clamp(2.4rem, 5.5vw, 4rem); margin: 1.2rem 0 .8rem; letter-spacing: -.02em; }
+.ab-hero h1 span { background: linear-gradient(90deg, #6ee7ff, #c58bff 55%, #ff6fb5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ab-hero p { color: #cbd8f7; max-width: 620px; margin: 0 auto; font-size: 1.12rem; }
+
+/* ---------- Overlapping stat cards ---------- */
+.ab-stats { margin-top: -78px; position: relative; z-index: 3; }
+.ab-stat {
+  background: #fff; border-radius: 20px; padding: 1.5rem 1.3rem; height: 100%; text-align: center;
+  border: 1px solid #e3eafb; box-shadow: 0 22px 50px rgba(16, 41, 107, .14);
+}
+.ab-stat i { font-size: 1.5rem; background: linear-gradient(135deg, var(--lp-blue), var(--lp-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ab-stat .n { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2.1rem; line-height: 1.1; color: var(--lp-navy); margin-top: .3rem; }
+.ab-stat p { margin: .2rem 0 0; color: var(--lp-muted); font-size: .9rem; }
+
+/* ---------- Story ---------- */
+.ab-title { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--lp-navy); font-size: clamp(1.7rem, 3vw, 2.4rem); margin: .5rem 0 1.2rem; line-height: 1.2; }
+.ab-text p { color: #3a4668; font-size: 1.04rem; line-height: 1.85; margin-bottom: 1.15rem; }
+.ab-lead { font-size: 1.15rem !important; color: var(--lp-navy) !important; font-weight: 500; }
+
+.ab-quote {
+  position: relative; margin-top: 1.6rem; padding: 1.4rem 1.6rem 1.4rem 1.8rem; border-radius: 16px;
+  background: linear-gradient(135deg, #f3f7ff, #fbf1fa); border-left: 5px solid var(--lp-gold);
+  color: var(--lp-navy); font-family: 'Poppins', sans-serif; font-weight: 500; line-height: 1.6;
+}
+.ab-quote i { color: var(--lp-pink); font-size: 1.6rem; margin-right: .4rem; vertical-align: -4px; }
+
+.ab-serve {
+  border-radius: 24px; padding: 2.2rem; color: #fff; position: relative; overflow: hidden;
+  background:
+    radial-gradient(360px 220px at 100% 0%, rgba(34, 199, 240, .35), transparent 60%),
+    radial-gradient(320px 220px at 0% 100%, rgba(230, 0, 126, .32), transparent 60%),
+    linear-gradient(135deg, #0c2160, #1f4bc0);
+  box-shadow: 0 26px 54px rgba(16, 41, 107, .26);
+}
+.ab-serve h5 { font-family: 'Poppins', sans-serif; color: #fff; font-weight: 600; margin-bottom: 1.4rem; }
+.ab-serve .row-i { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,.15); }
+.ab-serve .row-i:first-of-type { border-top: 0; }
+.ab-serve .row-i i { flex: none; width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-size: 1.3rem; background: rgba(255,255,255,.14); color: var(--lp-gold-2); }
+.ab-serve .row-i strong { display: block; font-family: 'Poppins', sans-serif; font-weight: 600; }
+.ab-serve .row-i span { color: #cfdbf8; font-size: .9rem; }
+
+/* ---------- Services ---------- */
+.ab-svc {
+  position: relative; background: #fff; border: 1px solid #e3eafb; border-radius: 22px; padding: 2rem 1.7rem 1.8rem;
+  height: 100%; overflow: hidden; transition: all .28s;
+}
+.ab-svc::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: linear-gradient(90deg, var(--lp-blue), var(--lp-pink)); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+.ab-svc:hover { transform: translateY(-6px); box-shadow: 0 20px 46px rgba(16, 41, 107, .14); }
+.ab-svc:hover::after { transform: scaleX(1); }
+.ab-svc .no { position: absolute; top: 1rem; right: 1.3rem; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2.6rem; color: #eaf0fd; line-height: 1; }
+.ab-svc .ic { width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center; font-size: 1.6rem; color: #fff; background: linear-gradient(135deg, var(--lp-blue), var(--lp-purple)); margin-bottom: 1.2rem; box-shadow: 0 10px 22px rgba(36, 87, 214, .28); }
+.ab-svc h5 { font-family: 'Poppins', sans-serif; color: var(--lp-navy); font-size: 1.06rem; font-weight: 600; margin: 0; line-height: 1.45; }
+
+/* ---------- Mission & Vision ---------- */
+.ab-mv {
+  position: relative; overflow: hidden; border-radius: 26px; padding: 2.6rem 2.3rem; height: 100%; color: #fff;
+  background:
+    radial-gradient(320px 200px at 100% 0%, rgba(34, 199, 240, .3), transparent 60%),
+    linear-gradient(135deg, #0c2160, #1f4bc0);
+  box-shadow: 0 24px 50px rgba(16, 41, 107, .24);
+}
+.ab-mv.alt {
+  background:
+    radial-gradient(320px 200px at 100% 0%, rgba(255, 138, 200, .35), transparent 60%),
+    linear-gradient(135deg, #3a1470, #c0127f);
+}
+.ab-mv .ic { width: 60px; height: 60px; border-radius: 18px; display: grid; place-items: center; font-size: 1.7rem; margin-bottom: 1.2rem; background: rgba(255,255,255,.16); color: var(--lp-gold-2); }
+.ab-mv h3 { font-family: 'Poppins', sans-serif; color: #fff; font-weight: 700; font-size: 1.6rem; }
+.ab-mv p { margin: 0; color: #dbe5fb; line-height: 1.8; font-size: 1.05rem; }
+
+/* ---------- Closing ---------- */
+.ab-close {
+  border-radius: 28px; padding: 3.6rem 2.5rem; text-align: center; color: #fff; position: relative; overflow: hidden;
+  background:
+    radial-gradient(520px 260px at 95% 0%, rgba(230, 0, 126, .45), transparent 60%),
+    radial-gradient(520px 300px at 0% 100%, rgba(34, 199, 240, .35), transparent 60%),
+    linear-gradient(135deg, #10296b, #2457d6);
+}
+.ab-close h2 { font-family: 'Poppins', sans-serif; color: #fff; font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.3rem); }
+.ab-close h2 .script { color: #ff8ac8; font-size: 1.25em; }
+
+@media (max-width: 991px) { .ab-hero { padding: 64px 0 130px; } .ab-sky { height: 140px; } }
+
+/* product chips inside cards */
+.ab-svc { height: 100%; }
+.ab-svc .items { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.ab-svc .items span { font-size: .78rem; font-weight: 500; padding: .25rem .7rem; border-radius: 50px; background: #eef3ff; color: var(--lp-blue); }

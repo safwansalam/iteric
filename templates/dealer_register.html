@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5" style="max-width:700px">
+  <h2>Dealer Registration</h2>
+  <form method="post" class="card card-body shadow-sm">{% csrf_token %}
+    {% for f in form %}<div class="mb-3"><label class="form-label">{{ f.label }}</label>{{ f }}
+      {{ f.errors }}</div>{% endfor %}
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}
