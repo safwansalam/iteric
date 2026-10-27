@@ -64,7 +64,7 @@
   });
 
   /* ---------- groups of cards: fade up in a gentle stagger ---------- */
-  var groups = ['.lp-brand-row a', '.lp-cat', '.lp-product', '.lp-branch', '.lp-why', '.ab-stat', '.ab-svc',
+  var groups = ['.lp-brand-row a', '.ab-brand-tile', '.lp-cat', '.lp-product', '.lp-branch', '.lp-why', '.ab-stat', '.ab-svc',
                 '.product-card', '.brand-tile', '.brand-chip', '.cat-pill'];
   groups.forEach(function (sel) {
     var els = $$(sel);

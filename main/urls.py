@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views, dashboard
+from main import dashboard, views
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -15,5 +15,7 @@ urlpatterns = [
     path('dashboard/', dashboard.dashboard_home, name='dashboard_home'),
     path('dashboard/login/', dashboard.dashboard_login, name='dashboard_login'),
     path('dashboard/logout/', dashboard.dashboard_logout, name='dashboard_logout'),
+    path('dashboard/dealers/<int:pk>/', dashboard.dashboard_dealer, name='dashboard_dealer'),
+    path('dashboard/dealers/<int:pk>/file/<str:which>/', dashboard.dashboard_dealer_file, name='dashboard_dealer_file'),
     path('dashboard/<str:kind>/', dashboard.dashboard_list, name='dashboard_list'),
 ]

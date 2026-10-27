@@ -29,6 +29,18 @@
 .ab-crumb a { color: #fff; text-decoration: none; font-weight: 600; }
 .ab-hero h1 { font-family: 'Poppins', sans-serif; font-weight: 800; color: #fff; font-size: clamp(2.4rem, 5.5vw, 4rem); margin: 1.2rem 0 .8rem; letter-spacing: -.02em; }
 .ab-hero h1 span { background: linear-gradient(90deg, #6ee7ff, #c58bff 55%, #ff6fb5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* "About" + the IT Eric logo, exactly as in the navbar (no box, no effects). */
+.ab-hero h1.ab-h1 {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .3em .5em;
+  font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 700; letter-spacing: -.01em; margin: 1.3rem 0 1rem;
+}
+.ab-hero h1 .ab-logo-badge { display: inline-flex; align-items: center; background: none; -webkit-background-clip: border-box; background-clip: border-box; }
+.ab-hero h1 .ab-logo-badge img { display: block; height: 1.15em; width: auto; }   /* the plain logo, same as the navbar */
+.ab-hero h1.ab-h1 + p { position: relative; padding-top: 1.25rem; }
+.ab-hero h1.ab-h1 + p::before {
+  content: ''; position: absolute; top: 0; left: 50%; width: 56px; height: 3px; margin-left: -28px; border-radius: 3px;
+  background: linear-gradient(90deg, #22c7f0, #8a3ffc 55%, #e6007e);
+}
 .ab-hero p { color: #cbd8f7; max-width: 620px; margin: 0 auto; font-size: 1.12rem; }
 
 /* ---------- Overlapping stat cards ---------- */
@@ -114,3 +126,14 @@
 .ab-svc { height: 100%; }
 .ab-svc .items { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
 .ab-svc .items span { font-size: .78rem; font-weight: 500; padding: .25rem .7rem; border-radius: 50px; background: #eef3ff; color: var(--lp-blue); }
+
+/* ---------- Brands: every logo in the same size box ---------- */
+.ab-brand-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.ab-brand-tile {
+  display: flex; align-items: center; justify-content: center; width: 200px; height: 92px; padding: 0 1.4rem;
+  background: #fff; border: 1px solid #e3eafb; border-radius: 16px; text-decoration: none; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(16, 41, 107, .05); transition: all .25s;
+}
+.ab-brand-tile:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(16, 41, 107, .12); border-color: #cfdcf7; }
+.ab-brand-tile img { display: block; width: auto; height: auto; max-width: 150px; max-height: 48px; object-fit: contain; mix-blend-mode: multiply; }
+@media (max-width: 575px) { .ab-brand-tile { width: calc(50% - .5rem); height: 80px; padding: 0 1rem; } .ab-brand-tile img { max-width: 100%; max-height: 40px; } }

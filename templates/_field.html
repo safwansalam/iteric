@@ -1,0 +1,8 @@
+<div class="{{ cols|default:'col-12' }}">
+  <div class="dr-field{% if f.errors %} has-error{% endif %}">
+    <label class="dr-label" for="{{ f.id_for_label }}">{{ f.label }}{% if f.field.required %}<span class="req">*</span>{% endif %}</label>
+    {{ f }}
+    {% for e in f.errors %}<div class="dr-err"><i class="bi bi-exclamation-circle"></i> {{ e }}</div>{% endfor %}
+    {% if hint %}<div class="dr-hint">{{ hint }}</div>{% endif %}
+  </div>
+</div>

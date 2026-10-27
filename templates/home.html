@@ -26,7 +26,7 @@
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
         <h1>Innovation.<br>Technology.<br><span class="grad-text">Excellence.</span></h1>
-        <p class="lead">Kerala's trusted IT products distributor. Desktops, laptops, monitors, processors, motherboards and storage from Intel, AMD, HP, Dell, Gigabyte, WD and Seagate, delivered through 6 branches across the state.</p>
+        <p class="lead">Kerala’s trusted IT products distributor. Laptops, desktops, monitors, processors, motherboards, storage, networking and more from Intel, AMD, HP, Dell, Gigabyte, WD, Seagate and many more brands, delivered through 6 branches across the state.</p>
         <div class="d-flex flex-wrap gap-3 mt-4">
           <a href="{% url 'products' %}" class="lp-btn lp-btn-pink">Browse Products <i class="bi bi-arrow-right"></i></a>
           <a href="{% url 'dealer' %}" class="lp-btn lp-btn-outline">Become a Dealer</a>
@@ -87,7 +87,7 @@
             </g>
             <line x1="290" y1="232" x2="434" y2="232" stroke="#dbe5fb"/>
             <g font-family="Inter,Arial,sans-serif" font-size="9" font-weight="600" fill="#10296b">
-              <text x="290" y="250">&#9742; 81119 90966</text>
+              <text x="290" y="250">&#9742; 8111 990 996</text>
               <text x="290" y="268">&#9993; mail@iteric.in</text>
             </g>
 
@@ -105,13 +105,7 @@
   <div class="container">
     <div class="lp-brands-box">
       <div class="lp-brands-label">Authorised brand partners</div>
-      <div class="lp-brand-row">
-        {% for b in brands %}
-        <a href="{% url 'products' %}?brand={{ b.id }}"><img src="{{ b.logo.url }}" alt="Brand logo"></a>
-        {% empty %}
-        <span class="text-muted">Add brand logos in the admin panel.</span>
-        {% endfor %}
-      </div>
+      {% include 'brand_slider.html' %}
     </div>
   </div>
 </section>
@@ -177,7 +171,6 @@
         <div class="lp-product">
           <div class="img"><img src="{{ p.image.url }}" alt="{{ p.name }}"></div>
           <div class="body">
-            <img src="{{ p.brand.logo.url }}" alt="Brand logo">
             <h6>{{ p.name }}</h6>
           </div>
         </div>
@@ -197,14 +190,14 @@
       <h2 class="lp-title">Branches across <span class="script">Kerala</span></h2>
       <p class="lp-sub mx-auto">Six branches, so stock and support are always close to you.</p>
     </div>
-    <!-- Add each branch's address / phone here when available -->
+    <!-- Phone numbers are clickable (tel: links). Thrissur has no number yet: add it as <a class="ph" href="tel:+91XXXXXXXXXX"><i class="bi bi-telephone-fill"></i>XXXXX XXXXX</a> -->
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Kochi</h5><span>IT Eric branch</span></div></div></div>
-      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Trivandrum</h5><span>IT Eric branch</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Kochi</h5><div class="phones"><a class="ph" href="tel:+914843513698"><i class="bi bi-telephone-fill"></i>0484-3513698</a><a class="ph" href="tel:+918111999832"><i class="bi bi-telephone-fill"></i>81119 99832</a></div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Trivandrum</h5><div class="phones"><a class="ph" href="tel:+914714518901"><i class="bi bi-telephone-fill"></i>0471-4518901</a><a class="ph" href="tel:+918111888984"><i class="bi bi-telephone-fill"></i>81118 88984</a></div></div></div></div>
       <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thrissur</h5><span>IT Eric branch</span></div></div></div>
-      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Calicut</h5><span>IT Eric branch</span></div></div></div>
-      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thodupuzha</h5><span>IT Eric branch</span></div></div></div>
-      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Perinthalmanna</h5><span>IT Eric branch</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Calicut</h5><div class="phones"><a class="ph" href="tel:+919526399111"><i class="bi bi-telephone-fill"></i>95263 99111</a><a class="ph" href="tel:+919947193182"><i class="bi bi-telephone-fill"></i>99471 93182</a></div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Thodupuzha</h5><div class="phones"><a class="ph" href="tel:+919526377444"><i class="bi bi-telephone-fill"></i>95263 77444</a></div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="lp-branch"><div class="lp-pin"><i class="bi bi-geo-alt-fill"></i></div><div><h5>Perinthalmanna</h5><div class="phones"><a class="ph" href="tel:+918111888985"><i class="bi bi-telephone-fill"></i>81118 88985</a></div></div></div></div>
     </div>
   </div>
 </section>
@@ -245,7 +238,7 @@
   <div class="container">
     <div class="row g-3">
       <div class="col-md-4"><a class="lp-contact" href="https://www.iteric.in" target="_blank"><i class="bi bi-globe2"></i><div><small>Website</small><strong>www.iteric.in</strong></div></a></div>
-      <div class="col-md-4"><a class="lp-contact" href="tel:+918111990966"><i class="bi bi-telephone-fill"></i><div><small>Call us</small><strong>81119 90966</strong></div></a></div>
+      <div class="col-md-4"><a class="lp-contact" href="tel:+918111990996"><i class="bi bi-telephone-fill"></i><div><small>Call us</small><strong>8111 990 996</strong></div></a></div>
       <div class="col-md-4"><a class="lp-contact" href="mailto:mail@iteric.in"><i class="bi bi-envelope-fill"></i><div><small>Email</small><strong>mail@iteric.in</strong></div></a></div>
     </div>
   </div>

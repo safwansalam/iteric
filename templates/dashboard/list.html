@@ -18,7 +18,7 @@
 
 <div class="cardx" style="overflow-x:auto">
   <table class="t">
-    <thead><tr><th>Received</th>{% for label, v in rows.0.values %}<th>{{ label }}</th>{% endfor %}<th>Status</th></tr></thead>
+    <thead><tr><th>Received</th>{% for label, v in rows.0.values %}<th>{{ label }}</th>{% endfor %}<th>Status</th>{% if kind == 'dealers' %}<th></th>{% endif %}</tr></thead>
     <tbody>
     {% for r in rows %}
       <tr>
@@ -38,6 +38,7 @@
             </select>
           </form>
         </td>
+        {% if kind == 'dealers' %}<td><a class="btn btn-sm btn-brand text-nowrap" href="{% url 'dashboard_dealer' r.obj.pk %}">View details</a></td>{% endif %}
       </tr>
     {% empty %}
       <tr><td colspan="9" class="text-center text-muted py-5">No entries found.</td></tr>

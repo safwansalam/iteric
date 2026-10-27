@@ -1,0 +1,54 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}{{ d.company }}{% endblock %}
+{% block body %}
+<a href="{% url 'dashboard_list' 'dealers' %}" class="text-decoration-none small"><i class="bi bi-arrow-left"></i> Back to dealer registrations</a>
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-2 mb-4">
+  <div>
+    <h3 class="mb-0">{{ d.company }}</h3>
+    <div class="text-muted small">Reference <strong>{{ d.ref }}</strong> &middot; received {{ d.created|date:"d M Y, h:i A" }}</div>
+  </div>
+  <form method="post" class="d-flex align-items-center gap-2">{% csrf_token %}
+    <span class="small text-muted">Status</span>
+    <select name="status" class="sel" onchange="this.form.submit()">
+      {% for v, l in statuses %}<option value="{{ v }}" {% if d.status == v %}selected{% endif %}>{{ l }}</option>{% endfor %}
+    </select>
+    <span class="pill {{ d.status }}">{{ d.get_status_display }}</span>
+  </form>
+</div>
+
+<div class="row g-3">
+  {% for s in sections %}
+  <div class="col-lg-6">
+    <div class="cardx p-4 h-100">
+      <h6 class="mb-3"><i class="bi {{ s.icon }} me-2 text-primary"></i>{{ s.title }}</h6>
+      <table class="table table-sm mb-0">
+        {% for label, val in s.rows %}<tr><td class="text-muted" style="width:42%">{{ label }}</td><td class="fw-semibold" style="white-space:pre-line">{{ val }}</td></tr>{% endfor %}
+      </table>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="col-lg-6">
+    <div class="cardx p-4 h-100">
+      <h6 class="mb-3"><i class="bi bi-people me-2 text-primary"></i>Partners / Proprietors</h6>
+      <table class="table table-sm mb-0">
+        <thead><tr class="text-muted small"><th>Name</th><th>Mobile</th><th>Address</th></tr></thead>
+        {% for p in partners %}<tr><td class="fw-semibold">{{ p.name }}</td><td>{{ p.mobile|default:"—" }}</td><td>{{ p.address|default:"—" }}</td></tr>
+        {% empty %}<tr><td colspan="3" class="text-muted">None added.</td></tr>{% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="cardx p-4">
+      <h6 class="mb-3"><i class="bi bi-file-earmark-pdf me-2 text-danger"></i>Documents <small class="text-muted fw-normal">(visible to staff only)</small></h6>
+      <div class="d-flex flex-wrap gap-3">
+        {% for label, key, ok in docs %}
+          {% if ok %}<a class="btn btn-brand" target="_blank" href="{% url 'dashboard_dealer_file' d.pk key %}"><i class="bi bi-file-earmark-pdf"></i> {{ label }}</a>
+          {% else %}<span class="text-muted">{{ label }}: not uploaded</span>{% endif %}
+        {% empty %}<span class="text-muted">No documents uploaded.</span>{% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{# Brand logo slider: any number of logos, swipe/drag or use the arrow buttons. Self-contained (styles + script). #}
+<style>
+.bslider { position: relative; }
+.bslider .bs-track {
+  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x proximity; scroll-behavior: smooth;
+  scrollbar-width: none; -ms-overflow-style: none; padding: .6rem 3.4rem 1rem; scroll-padding: 0 3.4rem; cursor: grab;
+}
+.bslider .bs-track::-webkit-scrollbar { display: none; }
+.bslider .bs-track.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
+.bslider .bs-item {
+  flex: 0 0 auto; width: 180px; height: 84px; display: flex; align-items: center; justify-content: center; padding: 0 1.2rem;
+  background: #fff; border: 1px solid #e3eafb; border-radius: 16px; text-decoration: none; scroll-snap-align: start;
+  box-shadow: 0 6px 18px rgba(16, 41, 107, .05); transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.bslider .bs-item:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(16, 41, 107, .12); border-color: #cfdcf7; }
+.bslider .bs-item img {
+  display: block; width: auto; height: auto; max-width: 130px; max-height: 46px; object-fit: contain;
+  mix-blend-mode: multiply; pointer-events: none; -webkit-user-drag: none;
+}
+.bslider .bs-btn {
+  position: absolute; top: 50%; transform: translateY(-62%); z-index: 3; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid #dbe5fb; background: #fff; color: #10296b; font-size: 1.1rem; display: grid; place-items: center;
+  box-shadow: 0 8px 22px rgba(16, 41, 107, .16); cursor: pointer; transition: all .2s; padding: 0;
+}
+.bslider .bs-btn:hover { background: linear-gradient(135deg, #2457d6, #8a3ffc); color: #fff; border-color: transparent; }
+.bslider .bs-btn:disabled { opacity: .35; cursor: default; pointer-events: none; }
+.bslider .bs-prev { left: 0; } .bslider .bs-next { right: 0; }
+.bslider::before, .bslider::after { content: ''; position: absolute; top: 0; bottom: 0; width: 56px; z-index: 2; pointer-events: none; }
+.bslider::before { left: 44px; background: linear-gradient(90deg, #fff, rgba(255,255,255,0)); }
+.bslider::after { right: 44px; background: linear-gradient(270deg, #fff, rgba(255,255,255,0)); }
+.bslider.at-start::before, .bslider.at-end::after { opacity: 0; }
+.bslider::before, .bslider::after { transition: opacity .25s; }
+.bslider.no-scroll .bs-btn, .bslider.no-scroll::before, .bslider.no-scroll::after { display: none; }
+.bslider.no-scroll .bs-track { justify-content: center; padding-left: 0; padding-right: 0; cursor: default; }
+@media (max-width: 575px) {
+  .bslider .bs-track { padding: .5rem 2.9rem .9rem; scroll-padding: 0 2.9rem; gap: .75rem; }
+  .bslider .bs-item { width: 140px; height: 72px; padding: 0 .9rem; }
+  .bslider .bs-item img { max-width: 100px; max-height: 38px; }
+  .bslider .bs-btn { width: 38px; height: 38px; font-size: 1rem; }
+  .bslider::before { left: 38px; } .bslider::after { right: 38px; }
+}
+</style>
+
+<div class="bslider" data-bslider>
+  <button type="button" class="bs-btn bs-prev" aria-label="Previous brands"><i class="bi bi-chevron-left"></i></button>
+  <div class="bs-track">
+    {% for b in brands %}
+    <a class="bs-item" href="{% url 'products' %}?brand={{ b.id }}"><img src="{{ b.logo.url }}" alt="Brand logo" draggable="false"></a>
+    {% empty %}
+    <span class="text-muted px-3">Add brand logos in the admin panel.</span>
+    {% endfor %}
+  </div>
+  <button type="button" class="bs-btn bs-next" aria-label="Next brands"><i class="bi bi-chevron-right"></i></button>
+</div>
+
+<script>
+(function () {
+  document.querySelectorAll('[data-bslider]').forEach(function (box) {
+    if (box.getAttribute('data-ready')) return;
+    box.setAttribute('data-ready', '1');
+    var track = box.querySelector('.bs-track'), prev = box.querySelector('.bs-prev'), next = box.querySelector('.bs-next');
+
+    function update() {
+      var max = track.scrollWidth - track.clientWidth;
+      box.classList.toggle('no-scroll', max <= 4);
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max - 2;
+      box.classList.toggle('at-start', prev.disabled);
+      box.classList.toggle('at-end', next.disabled);
+    }
+    function step(dir) { track.scrollBy({ left: dir * Math.max(200, track.clientWidth * 0.8), behavior: 'smooth' }); }
+    prev.addEventListener('click', function () { step(-1); });
+    next.addEventListener('click', function () { step(1); });
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    update();
+
+    /* mouse drag to scroll (touch screens already swipe natively) */
+    var down = false, startX = 0, startLeft = 0, moved = false;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 5) { moved = true; track.classList.add('dragging'); }
+      if (moved) track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function () { down = false; track.classList.remove('dragging'); });
+    track.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  });
+})();
+</script>

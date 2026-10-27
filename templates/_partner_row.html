@@ -1,0 +1,10 @@
+<div class="dr-partner" data-partner>
+  {% for h in form.hidden_fields %}{{ h }}{% endfor %}
+  <div class="row g-3 align-items-start">
+    {% include '_field.html' with f=form.name cols='col-md-4' %}
+    {% include '_field.html' with f=form.mobile cols='col-md-3' %}
+    {% include '_field.html' with f=form.address cols='col-md-4' %}
+    <div class="col-md-1 dr-rm-wrap"><button type="button" class="dr-remove" data-remove title="Remove partner" aria-label="Remove partner"><i class="bi bi-trash3"></i></button></div>
+  </div>
+  {% if form.non_field_errors %}<div class="dr-err mt-2">{{ form.non_field_errors|join:" " }}</div>{% endif %}
+</div>

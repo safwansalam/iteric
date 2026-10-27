@@ -6,10 +6,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.http import Http404, HttpResponse
-from django.shortcuts import redirect, render
+from django.http import FileResponse, Http404, HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import (ContactMessage, CustomerEnquiry, DealerRegistration,
+from .models import (DEALER_DOCS, DEALER_DOC_LABELS, FIRM_TYPE_DOCS, ContactMessage, CustomerEnquiry, DealerRegistration,
                      ENQUIRY_STATUS, DEALER_STATUS)
 
 staff_only = user_passes_test(lambda u: u.is_active and u.is_staff,
@@ -30,8 +30,11 @@ KINDS = {
     'dealers': dict(
         model=DealerRegistration, title='Dealer Registrations', icon='bi-shop',
         statuses=DEALER_STATUS,
-        fields=['company', 'contact_person', 'phone', 'email', 'gst_number', 'city', 'address'],
-        search=['company', 'contact_person', 'phone', 'email', 'gst_number', 'city']),
+        fields=['company', 'contact_person', 'phone', 'email', 'gst_number', 'city'],
+        export_fields=['company', 'firm_type', 'year_established', 'gst_number', 'pan_number', 'contact_person', 'phone',
+                       'email', 'address', 'city', 'state', 'pincode', 'bank_name', 'bank_branch', 'account_holder',
+                       'account_number', 'ifsc_code', 'account_type', 'payment_terms', 'id_proof_type'],
+        search=['company', 'contact_person', 'phone', 'email', 'gst_number', 'pan_number', 'city']),
 }
 
 
@@ -86,9 +89,10 @@ def dashboard_list(request, kind):
         resp = HttpResponse(content_type='text/csv')
         resp['Content-Disposition'] = f'attachment; filename="{kind}.csv"'
         w = csv.writer(resp)
-        w.writerow(cfg['fields'] + ['status', 'received'])
+        cols = cfg.get('export_fields', cfg['fields'])
+        w.writerow(cols + ['status', 'received'])
         for o in qs:
-            w.writerow([getattr(o, f) for f in cfg['fields']] +
+            w.writerow([getattr(o, f) for f in cols] +
                        [o.status, o.created.strftime('%d-%m-%Y %H:%M')])
         return resp
 
@@ -121,3 +125,61 @@ class DashboardLoginView(LoginView):
 
 dashboard_login = DashboardLoginView.as_view()
 dashboard_logout = LogoutView.as_view(next_page='dashboard_login')
+
+
+# ---------- dealer application: full details + private documents ----------
+DEALER_SECTIONS = [
+    ('Business', 'bi-building', [('Firm / company', 'company'), ('Type of firm', 'firm_type_label'),
+                                 ('Year established', 'year_established'), ('GST number', 'gst_number'),
+                                 ('PAN number', 'pan_number')]),
+    ('Contact', 'bi-geo-alt', [('Authorised person', 'contact_person'), ('Mobile', 'phone'), ('Email', 'email'),
+                               ('Address', 'address'), ('City', 'city'), ('State', 'state'), ('PIN code', 'pincode')]),
+    ('Bank details', 'bi-bank', [('Bank', 'bank_name'), ('Branch', 'bank_branch'), ('Account holder', 'account_holder'),
+                                 ('Account number', 'account_number'), ('IFSC', 'ifsc_code'),
+                                 ('Account type', 'account_type_label'), ('Preferred payment terms', 'payment_terms_label')]),
+]
+
+
+@staff_only
+def dashboard_dealer(request, pk):
+    d = get_object_or_404(DealerRegistration, pk=pk)
+    if request.method == 'POST':
+        new_status = request.POST.get('status')
+        if new_status in dict(DEALER_STATUS):
+            d.status = new_status
+            d.save(update_fields=['status'])
+        return redirect(request.path)
+    d.firm_type_label = d.get_firm_type_display()
+    d.account_type_label = d.get_account_type_display()
+    d.payment_terms_label = d.get_payment_terms_display()
+    sections = [dict(title=t, icon=i, rows=[(l, getattr(d, a) or '—') for l, a in rows]) for t, i, rows in DEALER_SECTIONS]
+    return render(request, 'dashboard/dealer_detail.html', {
+        'docs': [(label, key, bool(getattr(d, key))) for key, label in DEALER_DOCS if getattr(d, key) or key in required_docs(d)],
+        'd': d, 'sections': sections, 'partners': d.partners.all(), 'statuses': DEALER_STATUS,
+        'nav': _nav(), 'active': 'dealers',
+    })
+
+
+def required_docs(d):
+    base = ['gst_certificate', 'pan_card', 'id_proof', 'cancelled_cheque']
+    return base + [n for n, _ in FIRM_TYPE_DOCS.get(d.firm_type, [])]
+
+
+@staff_only
+def dashboard_dealer_file(request, pk, which):
+    d = get_object_or_404(DealerRegistration, pk=pk)
+    which = {'gst': 'gst_certificate', 'id': 'id_proof'}.get(which, which)
+    if which not in DEALER_DOC_LABELS:
+        raise Http404
+    f = getattr(d, which)
+    if not f:
+        raise Http404
+    try:
+        fh = f.open('rb')
+    except FileNotFoundError:
+        raise Http404
+    resp = FileResponse(fh, content_type='application/pdf')
+    name = DEALER_DOC_LABELS[which].split(' /')[0].replace(' ', '-')
+    resp['Content-Disposition'] = 'inline; filename="%s-%s.pdf"' % (name, d.ref)
+    resp['X-Content-Type-Options'] = 'nosniff'
+    return resp
