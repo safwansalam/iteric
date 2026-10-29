@@ -137,3 +137,13 @@
 .ab-brand-tile:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(16, 41, 107, .12); border-color: #cfdcf7; }
 .ab-brand-tile img { display: block; width: auto; height: auto; max-width: 150px; max-height: 48px; object-fit: contain; mix-blend-mode: multiply; }
 @media (max-width: 575px) { .ab-brand-tile { width: calc(50% - .5rem); height: 80px; padding: 0 1rem; } .ab-brand-tile img { max-width: 100%; max-height: 40px; } }
+
+/* ---------- Why choose IT Eric ---------- */
+.ab-why-wrap { max-width: 860px; margin-left: auto; margin-right: auto; }
+.ab-why {
+  display: flex; align-items: center; gap: .9rem; height: 100%; padding: 1.05rem 1.3rem; background: #fff;
+  border: 1px solid #e3eafb; border-radius: 16px; box-shadow: 0 6px 18px rgba(16, 41, 107, .05); transition: all .25s;
+}
+.ab-why:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(16, 41, 107, .12); }
+.ab-why i { flex: none; font-size: 1.4rem; background: linear-gradient(135deg, var(--lp-blue), var(--lp-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ab-why span { font-family: 'Poppins', sans-serif; font-weight: 500; color: var(--lp-navy); line-height: 1.4; }
